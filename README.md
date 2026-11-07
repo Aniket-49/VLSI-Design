@@ -2,64 +2,76 @@
 
 ## Project Overview
 
-This project implements a multi-floor elevator controller using Verilog HDL. It uses a Finite State Machine (FSM) to manage elevator movement, floor requests and door operations.
+A multi-floor elevator controller designed using Verilog HDL and implemented through an RTL-to-physical-design workflow.
 
-The project covers RTL design, functional simulation, synthesis and ASIC physical design.
+The design uses a Finite State Machine (FSM) to control elevator movement, floor requests, motor signals and door operations.
 
 ## Tools & Technologies
 
-- **HDL:** Verilog / SystemVerilog
-- **Simulation:** Icarus Verilog, GTKWave
-- **RTL Platform:** EDA Playground
-- **Synthesis:** Yosys
-- **Physical Design:** OpenLane
-- **Layout Inspection:** KLayout
+| Stage | Tools |
+|---|---|
+| RTL Design | Verilog HDL |
+| Simulation | EDA Playground, Icarus Verilog |
+| Waveform Analysis | GTKWave |
+| Synthesis | Yosys |
+| Physical Design | OpenLane |
+| Layout Inspection | KLayout |
 
 ## Repository Structure
 
 ```text
 VLSI-Design/
 ├── RTL/
+│   └── elevator_controller.sv
 ├── Testbench/
+│   └── elevator_controller_tb.sv
 ├── Netlist/
+│   └── elevator_netlist.v
 ├── Simulation/
-└── Physical_Design/
+│   └── waveform_simulation.png
+├── Physical_Design/
+│   ├── openlane_screenshot.png
+│   ├── yosys_synthesis_output.png
+│   └── klayout_output.png
+└── README.md
 ```
 
 ## Design Features
 
 - Parameterized floor configuration
-- Finite State Machine (FSM) based control
+- FSM-based elevator control
 - Floor request handling
-- Upward and downward motor control signals
+- Upward and downward motor control
 - Door operation control
 - Configurable door timing
 
-## Simulation
+## 1. RTL Design
 
-The RTL design was simulated using Icarus Verilog, with GTKWave used to inspect signal waveforms.
+The elevator controller was implemented using Verilog HDL with a finite state machine to manage elevator operations.
+
+## 2. Functional Simulation
+
+The design was simulated using Icarus Verilog on EDA Playground. GTKWave was used to inspect signal transitions and verify the controller's behaviour.
 
 ![Simulation Waveform](Simulation/waveform_simulation.png)
 
-## Synthesis
+## 3. Logic Synthesis
 
-Yosys was used for synthesis and netlist generation.
+Yosys was used to synthesize the RTL design and generate a gate-level netlist.
 
 ![Yosys Synthesis Output](Physical_Design/yosys_synthesis_output.png)
 
-## Physical Design
+## 4. Physical Design
 
-OpenLane was used for the ASIC physical design workflow, with KLayout used to inspect the generated layout.
+OpenLane was used for the ASIC physical-design workflow. KLayout was used to inspect the generated layout.
+
+**OpenLane Output**
+
+![OpenLane Output](Physical_Design/openlane_screenshot.png)
+
+**KLayout Output**
 
 ![KLayout Output](Physical_Design/klayout_output.png)
-
-## Project Files
-
-- `RTL/` – Main elevator controller RTL source.
-- `Testbench/` – Testbench for functional verification.
-- `Netlist/` – Generated synthesis netlist.
-- `Simulation/` – Simulation waveform.
-- `Physical_Design/` – Physical design screenshots and synthesis evidence.
 
 ## Author
 
